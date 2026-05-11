@@ -1,6 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import Login from "@/pages/login/login";
-import Layout from "@/pages/home/home";
+import Home from "@/pages/layout/layout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,7 +12,25 @@ const router = createBrowserRouter([
   },
   {
     path: "/layout",
-    element: <Layout></Layout>,
+    element: <Home></Home>,
+    children: [
+      {
+        path: "home",
+        element: <div>首页内容</div>,
+      },
+      {
+        path: "user",
+        element: <div>用户管理内容</div>,
+      },
+      {
+        path: "health",
+        element: <div>健康数据内容</div>,
+      },
+      {
+        path: "diet",
+        element: <div>饮食管理内容</div>,
+      },
+    ],
   },
 ]);
 
